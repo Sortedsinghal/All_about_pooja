@@ -6,7 +6,7 @@ function getCurrentTime() {
   return now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 }
 
-function App() {
+function App() {  
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const [user, setUser] = useState(null);
@@ -26,6 +26,7 @@ function App() {
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
 
   const handleLogin = () => {
     if (email && password) {
@@ -95,14 +96,7 @@ function App() {
     }
   };
 
-  const downloadChat = () => {
-    const textContent = messages.map(m => `[${m.time}] ${m.from}: ${m.isHTML ? m.text.replace(/<[^>]+>/g, '') : m.text}`).join('\n\n');
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'chat_history.txt';
-    a.click();
-  };
+
 
   if (!user) {
     return (
@@ -110,18 +104,18 @@ function App() {
         padding: 20,
         maxWidth: '400px',
         margin: '100px auto',
-        background: '#f9f9f9',
+        background: '#fff4e6',
         borderRadius: '10px',
         boxShadow: '0 0 15px rgba(0,0,0,0.1)',
         fontFamily: 'Arial, sans-serif',
         textAlign: 'center'
       }}>
-        <h2 style={{ color: '#333' }}>Login to E-commerce Chatbot</h2>
+        <h2 style={{ color: '#333' }}>Login to Pooja's World❤️</h2>
         <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} style={{
-          width: '100%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc'
+          width: '95%', padding: '10px', marginBottom: '10px', borderRadius: '5px', border: '1px solid #ccc'
         }} />
         <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} style={{
-          width: '100%', padding: '10px', marginBottom: '20px', borderRadius: '5px', border: '1px solid #ccc'
+          width: '95%', padding: '10px', marginBottom: '20px', borderRadius: '5px', border: '1px solid #ccc'
         }} />
         <button onClick={handleLogin} style={{
           width: '100%', padding: '10px', background: '#5cb85c', color: 'white',
@@ -132,17 +126,18 @@ function App() {
   }
 
   return (
+    <div style={{ backgroundColor: '#fff0f5', minHeight: '50vh', maxHeight: '000vh' }}> {/* Full-page background */}
     <div style={{
       padding: 20,
       maxWidth: '600px',
       margin: '40px auto',
-      background: '#f5f5f5',
+      background: '#ffdee9',
       borderRadius: '10px',
       boxShadow: '0 0 15px rgba(0,0,0,0.1)',
       fontFamily: 'Arial, sans-serif'
     }}>
       <h2 style={{ textAlign: 'center', color: '#333' }}>
-        Welcome, {user.email}
+        Welcome, {user.email}❤️
         <button onClick={handleLogout} style={{
           marginLeft: '10px',
           background: '#d9534f',
@@ -168,10 +163,11 @@ function App() {
           marginRight: 10
         }}>Reset Chat</button>
 
-        <button onClick={() => handleSend('books')} style={{ marginRight: 5 }}>📚 Books</button>
-        <button onClick={() => handleSend('electronics')} style={{ marginRight: 5 }}>🔌 Electronics</button>
-        <button onClick={() => handleSend('show all')} style={{ marginRight: 5 }}>🛍️ All</button>
-        <button onClick={downloadChat} style={{ marginLeft: 5 }}>📥 Export Chat</button>
+        <button onClick={() => handleSend('Flowers💐')} style={{ marginRight: 5 }}>💐 Flowers</button>
+        <button onClick={() => handleSend('MakeUp💄')} style={{ marginRight: 5 }}>💄 MakeUp</button>
+        <button onClick={() => handleSend('Chocolates🍫')} style={{ marginRight: 5 }}>🍫 Chocolates</button>
+        <button onClick={() => handleSend('Nickname🥰')} style={{ marginRight: 5 }}>🥰 Nicknames</button>
+        <button onClick={() => handleSend('Heels👠')} style={{ marginRight: 5 }}>👠 Heels</button>
       </div>
 
       <div style={{
@@ -187,7 +183,7 @@ function App() {
           <div key={idx} style={{
             marginBottom: '10px',
             padding: '8px',
-            backgroundColor: msg.from === 'user' ? '#d9edf7' : '#dff0d8',
+            backgroundColor: msg.from === 'user' ? '#e6e6fa' : '#fff5e1',
             borderRadius: '5px'
           }}>
             <b>{msg.from}</b> [{msg.time}]:<br />
@@ -224,6 +220,7 @@ function App() {
           cursor: 'pointer'
         }}>Send</button>
       </div>
+    </div>
     </div>
   );
 }

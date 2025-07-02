@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import BACKEND_URL from './config';
 
 function getCurrentTime() {
   const now = new Date();
@@ -55,7 +54,7 @@ function App() {
     setIsTyping(true);
   
     try {
-      const response = await fetch(`${BACKEND_URL}/api/chat`, {
+        const response = await fetch('https://all-about-pooja.onrender.com/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: messageText })

@@ -30,7 +30,7 @@ def init_db():
         ("Charlotte Tilbury💄", "MakeUp💄"),
         ("YSL💄", "MakeUp💄"),
         ("Huda Beauty💄", "MakeUp💄"),
-        ("Fendy Beauty💄", "MakeUp💄"),
+        ("Fenty Beauty💄", "MakeUp💄"),
         ("MAC💄", "MakeUp💄"),
         ("Dior💄", "MakeUp💄"),
         ("Chanel💄", "MakeUp💄"),
